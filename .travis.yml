@@ -1,0 +1,5 @@
+reference: http://www.objc.io/issue-6/travis-ci.html
+language: objective-c
+cache: bundler
+script:
+- xctool test -workspace Example/AHKBendingView.xcworkspace -scheme AHKBendingView -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
