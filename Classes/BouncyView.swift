@@ -91,7 +91,7 @@ class BouncyView: UIView, BouncyLayerDelegate {
 
     func commonInit() {
         shapeLayer.fillColor = fillColor.CGColor
-        self.layer.addSublayer(shapeLayer)
+        self.layer.insertSublayer(shapeLayer, atIndex: 0)
         updatePath()
 
         addSubview(dummyView)
