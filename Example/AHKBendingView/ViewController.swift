@@ -17,17 +17,26 @@ class ViewController: UIViewController {
     @IBOutlet var widthConstraint: NSLayoutConstraint
     @IBOutlet var heightConstraint: NSLayoutConstraint
 
-    @IBAction func toggleVisibility(sender: UIButton) {
+    @IBAction func randomizePosition(sender: UIButton) {
+        randomizePosition(true, randomizeSize: false)
+    }
+
+    @IBAction func randomizePositionAndSize(sender: UIButton) {
+        randomizePosition(true, randomizeSize: true)
+    }
+
+    func randomizePosition(position: Bool, randomizeSize: Bool) {
 
         bouncyView.damping = 0.7
         bouncyView.initialSpringVelocity = 0.8
 
-        widthConstraint.constant = CGFloat(arc4random() % 50) + 150
-        heightConstraint.constant = CGFloat(arc4random() % 50) + 150
+        if (randomizeSize) {
+            widthConstraint.constant = CGFloat(arc4random() % 50) + 150
+            heightConstraint.constant = CGFloat(arc4random() % 50) + 150
+        }
 
-        if (arc4random() % 2 == 0) {
+        if (position) {
             topConstraint.constant = CGFloat(arc4random() % UInt32(CGRectGetHeight(view.frame) - heightConstraint.constant))
-        } else {
             leadingConstraint.constant = CGFloat(arc4random() % UInt32(CGRectGetWidth(view.frame) - widthConstraint.constant))
         }
 
@@ -40,5 +49,6 @@ class ViewController: UIViewController {
                 self.bouncyView.layoutIfNeeded()
             }, completion: nil
         )
+
     }
 }

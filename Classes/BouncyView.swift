@@ -27,11 +27,6 @@ protocol BouncyLayerDelegate {
     func positionAnimationWillStart(anim: CABasicAnimation)
 }
 
-enum AnimationDirection {
-    case Horizontal
-    case Vertical
-}
-
 class BouncyView: UIView, BouncyLayerDelegate {
 
     // MARK: Public properties
@@ -46,9 +41,8 @@ class BouncyView: UIView, BouncyLayerDelegate {
     var animationCount = 0
     let dummyView = UIView()
     let shapeLayer = CAShapeLayer()
-    var positionAnimationDirection: AnimationDirection = .Horizontal
 
-    var sideToCenterDelta: CGFloat = 0 {
+    var bendingFactor: CGPoint = CGPointZero {
         didSet {
             updatePath()
         }
@@ -66,24 +60,15 @@ class BouncyView: UIView, BouncyLayerDelegate {
             let height = CGRectGetHeight(frame)
 
             let path = UIBezierPath()
-
-            switch (positionAnimationDirection) {
-            case .Horizontal:
-                path.moveToPoint(CGPoint(x: width, y: 0))
-                path.addQuadCurveToPoint(CGPoint(x: width, y: height),
-                    controlPoint:CGPoint(x: width + sideToCenterDelta, y: height / 2.0))
-                path.addLineToPoint(CGPoint(x: 0, y: height))
-                path.addQuadCurveToPoint(CGPoint(x: 0, y: 0),
-                    controlPoint: CGPoint(x: sideToCenterDelta, y: height / 2.0))
-            case .Vertical:
-                path.moveToPoint(CGPoint(x: 0, y: 0))
-                path.addQuadCurveToPoint(CGPoint(x: width, y: 0),
-                    controlPoint:CGPoint(x: width / 2.0, y: 0 + sideToCenterDelta))
-                path.addLineToPoint(CGPoint(x: width, y: height))
-                path.addQuadCurveToPoint(CGPoint(x: 0, y: height),
-                    controlPoint: CGPoint(x: width / 2.0, y: height + sideToCenterDelta))
-            }
-
+            path.moveToPoint(CGPoint(x: 0, y: 0))
+            path.addQuadCurveToPoint(CGPoint(x: width, y: 0),
+                controlPoint:CGPoint(x: width / 2.0, y: 0 + bendingFactor.y))
+            path.addQuadCurveToPoint(CGPoint(x: width, y: height),
+                controlPoint:CGPoint(x: width + bendingFactor.x, y: height / 2.0))
+            path.addQuadCurveToPoint(CGPoint(x: 0, y: height),
+                controlPoint: CGPoint(x: width / 2.0, y: height + bendingFactor.y))
+            path.addQuadCurveToPoint(CGPoint(x: 0, y: 0),
+                controlPoint: CGPoint(x: bendingFactor.x, y: height / 2.0))
             path.closePath()
 
             return path
@@ -139,7 +124,6 @@ class BouncyView: UIView, BouncyLayerDelegate {
 
         let verticalDelta = abs(CGRectGetMinY(dummyView.frame) - newPosition.y)
         let horizontalDelta = abs(CGRectGetMinX(dummyView.frame) - newPosition.x)
-        positionAnimationDirection = horizontalDelta > verticalDelta ? .Horizontal : .Vertical
 
         UIView.animateWithDuration(anim.duration,
             delay: anim.beginTime,
@@ -168,11 +152,7 @@ class BouncyView: UIView, BouncyLayerDelegate {
         let dummyViewPresentationLayer = dummyView.layer.presentationLayer() as CALayer
         let presentationLayer = layer.presentationLayer() as CALayer
 
-        switch (positionAnimationDirection) {
-        case .Horizontal:
-            sideToCenterDelta = CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame)
-        case .Vertical:
-            sideToCenterDelta = CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame)
-        }
+        bendingFactor = CGPoint(x: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
+            y: CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame))
     }
 }
