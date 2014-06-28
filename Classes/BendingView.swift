@@ -160,10 +160,11 @@ class BendingView: UIView, BendingLayerDelegate {
     }
 
     func tick(displayLink: CADisplayLink) {
-        let dummyViewPresentationLayer = dummyView.layer.presentationLayer() as CALayer
-        let presentationLayer = layer.presentationLayer() as CALayer
-
-        bendingOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
-            vertical: CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame))
+        if let dummyViewPresentationLayer = dummyView.layer.presentationLayer() as? CALayer {
+            if let presentationLayer = layer.presentationLayer() as? CALayer {
+                bendingOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
+                    vertical: CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame))
+            }
+        }
     }
 }
