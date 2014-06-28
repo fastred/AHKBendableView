@@ -2,7 +2,7 @@
 
 `AHKBendableView` is a `UIView` subclass that bends its edges when its position is animated.
 
-TODO: gif
+![Demo GIF](https://raw.githubusercontent.com/fastred/AHKBendableView/master/demo.gif)
 
 ## Usage
 
