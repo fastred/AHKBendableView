@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  AHKBendableView
 //
-//  Created by Arkadiusz on 26-06-14.
-//  Copyright (c) 2014 Arkadiusz Holko. All rights reserved.
+//  Created by Arkadiusz Holko on 26-06-14.
 //
 
 import UIKit
