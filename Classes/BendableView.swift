@@ -52,10 +52,10 @@ class BendableView: UIView, BendableLayerDelegate {
     // A hidden view that is used only for spring animation's simulation.
     // Its frame's origin matches the view's frame origin (except during animation). Of course it is in a different coordinate system,
     // but it doesn't matter to us. What we're interested in, is a position's difference between this subview's frame and the view's frame.
-    // This difference (`BendableOffset`) is used for Bendable the edges of the view.
+    // This difference (`bendableOffset`) is used for bending the edges of the view.
     let dummyView = UIView()
     let shapeLayer = CAShapeLayer()
-    var BendableOffset: UIOffset = UIOffsetZero {
+    var bendableOffset: UIOffset = UIOffsetZero {
     didSet {
         updatePath()
     }
@@ -142,13 +142,13 @@ class BendableView: UIView, BendableLayerDelegate {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 0, y: 0))
         path.addQuadCurveToPoint(CGPoint(x: width, y: 0),
-            controlPoint:CGPoint(x: width / 2.0, y: 0 + BendableOffset.vertical))
+            controlPoint:CGPoint(x: width / 2.0, y: 0 + bendableOffset.vertical))
         path.addQuadCurveToPoint(CGPoint(x: width, y: height),
-            controlPoint:CGPoint(x: width + BendableOffset.horizontal, y: height / 2.0))
+            controlPoint:CGPoint(x: width + bendableOffset.horizontal, y: height / 2.0))
         path.addQuadCurveToPoint(CGPoint(x: 0, y: height),
-            controlPoint: CGPoint(x: width / 2.0, y: height + BendableOffset.vertical))
+            controlPoint: CGPoint(x: width / 2.0, y: height + bendableOffset.vertical))
         path.addQuadCurveToPoint(CGPoint(x: 0, y: 0),
-            controlPoint: CGPoint(x: BendableOffset.horizontal, y: height / 2.0))
+            controlPoint: CGPoint(x: bendableOffset.horizontal, y: height / 2.0))
         path.closePath()
 
         shapeLayer.path = path.CGPath
@@ -161,7 +161,7 @@ class BendableView: UIView, BendableLayerDelegate {
     func tick(displayLink: CADisplayLink) {
         if let dummyViewPresentationLayer = dummyView.layer.presentationLayer() as? CALayer {
             if let presentationLayer = layer.presentationLayer() as? CALayer {
-                BendableOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
+                bendableOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
                     vertical: CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame))
             }
         }
