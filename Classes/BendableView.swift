@@ -130,15 +130,15 @@ class BendableView: UIView, BendableLayerDelegate {
     // MARK: Private
 
     func updatePath() {
-        var frame: CGRect
+        var bounds: CGRect
         if let presentationLayer = layer.presentationLayer() as? CALayer {
-            frame = presentationLayer.frame
+            bounds = presentationLayer.bounds
         } else {
-            frame = self.frame
+            bounds = self.bounds
         }
 
-        let width = CGRectGetWidth(frame)
-        let height = CGRectGetHeight(frame)
+        let width = CGRectGetWidth(bounds)
+        let height = CGRectGetHeight(bounds)
 
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 0, y: 0))
