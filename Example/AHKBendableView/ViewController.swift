@@ -17,11 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet var widthConstraint: NSLayoutConstraint
     @IBOutlet var heightConstraint: NSLayoutConstraint
 
-    @IBAction func randomizePosition(sender: UIButton) {
+    @IBAction func randomizePositionTapped(sender: UIButton) {
         randomizePosition(true, randomizeSize: false)
     }
 
-    @IBAction func randomizePositionAndSize(sender: UIButton) {
+    @IBAction func randomizePositionAndSizeTapped(sender: UIButton) {
         randomizePosition(true, randomizeSize: true)
     }
 
