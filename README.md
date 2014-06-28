@@ -1,5 +1,7 @@
 # AHKBendableView
 
+[![CocoaPods](https://img.shields.io/cocoapods/v/BendableView.svg?style=flat)](https://github.com/fastred/BendableView)
+
 `AHKBendableView` is a `UIView` subclass that bends its edges when its position is animated.
 
 ![Demo GIF](https://raw.githubusercontent.com/fastred/AHKBendableView/master/demo.gif)
