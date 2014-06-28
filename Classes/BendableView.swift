@@ -1,6 +1,6 @@
 //
-//  BendingView.swift
-//  AHKBendingView
+//  BendableView.swift
+//  AHKBendableView
 //
 //  Created by Arkadiusz on 26-06-14.
 //  Copyright (c) 2014 Arkadiusz Holko. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 import QuartzCore
 
-class BendingLayer: CALayer {
+class BendableLayer: CALayer {
 
     override func addAnimation(anim: CAAnimation!, forKey key: String!) {
         super.addAnimation(anim, forKey: key)
@@ -24,7 +24,7 @@ class BendingLayer: CALayer {
     }
 }
 
-protocol BendingLayerDelegate {
+protocol BendableLayerDelegate {
     func positionAnimationWillStart(anim: CABasicAnimation)
 }
 
@@ -34,7 +34,7 @@ protocol BendingLayerDelegate {
 // to animate the change of the position and set `damping` and `initialSpringVelocity` to different values
 // than in that animation block. I propose to use slightly lower values for these properties.
 // These properties can't be set automatically, because `CASpringAnimation` is private.
-class BendingView: UIView, BendingLayerDelegate {
+class BendableView: UIView, BendableLayerDelegate {
 
     // MARK: Public properties
 
@@ -53,10 +53,10 @@ class BendingView: UIView, BendingLayerDelegate {
     // A hidden view that is used only for spring animation's simulation.
     // Its frame's origin matches the view's frame origin (except during animation). Of course it is in a different coordinate system,
     // but it doesn't matter to us. What we're interested in, is a position's difference between this subview's frame and the view's frame.
-    // This difference (`bendingOffset`) is used for bending the edges of the view.
+    // This difference (`BendableOffset`) is used for Bendable the edges of the view.
     let dummyView = UIView()
     let shapeLayer = CAShapeLayer()
-    var bendingOffset: UIOffset = UIOffsetZero {
+    var BendableOffset: UIOffset = UIOffsetZero {
     didSet {
         updatePath()
     }
@@ -87,7 +87,7 @@ class BendingView: UIView, BendingLayerDelegate {
     // MARK: UIView
 
     override class func layerClass() -> AnyClass {
-        return BendingLayer.self
+        return BendableLayer.self
     }
 
     override func layoutSubviews() {
@@ -97,7 +97,7 @@ class BendingView: UIView, BendingLayerDelegate {
         dummyView.frame.origin = frame.origin
     }
 
-    // MARK: BendingLayerDelegate
+    // MARK: BendableLayerDelegate
 
     func positionAnimationWillStart(anim: CABasicAnimation) {
         if !displayLink {
@@ -143,13 +143,13 @@ class BendingView: UIView, BendingLayerDelegate {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 0, y: 0))
         path.addQuadCurveToPoint(CGPoint(x: width, y: 0),
-            controlPoint:CGPoint(x: width / 2.0, y: 0 + bendingOffset.vertical))
+            controlPoint:CGPoint(x: width / 2.0, y: 0 + BendableOffset.vertical))
         path.addQuadCurveToPoint(CGPoint(x: width, y: height),
-            controlPoint:CGPoint(x: width + bendingOffset.horizontal, y: height / 2.0))
+            controlPoint:CGPoint(x: width + BendableOffset.horizontal, y: height / 2.0))
         path.addQuadCurveToPoint(CGPoint(x: 0, y: height),
-            controlPoint: CGPoint(x: width / 2.0, y: height + bendingOffset.vertical))
+            controlPoint: CGPoint(x: width / 2.0, y: height + BendableOffset.vertical))
         path.addQuadCurveToPoint(CGPoint(x: 0, y: 0),
-            controlPoint: CGPoint(x: bendingOffset.horizontal, y: height / 2.0))
+            controlPoint: CGPoint(x: BendableOffset.horizontal, y: height / 2.0))
         path.closePath()
 
         shapeLayer.path = path.CGPath
@@ -162,7 +162,7 @@ class BendingView: UIView, BendingLayerDelegate {
     func tick(displayLink: CADisplayLink) {
         if let dummyViewPresentationLayer = dummyView.layer.presentationLayer() as? CALayer {
             if let presentationLayer = layer.presentationLayer() as? CALayer {
-                bendingOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
+                BendableOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
                     vertical: CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame))
             }
         }

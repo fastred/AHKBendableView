@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AHKBendingView
+//  AHKBendableView
 //
 //  Created by Arkadiusz on 28-06-14.
 //  Copyright (c) 2014 Arkadiusz Holko. All rights reserved.

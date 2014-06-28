@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="AHKBendingView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="AHKBendableView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-17-HkY" customClass="BendingView" customModule="AHKBendingView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-17-HkY" customClass="BendableView" customModule="AHKBendableView" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="100" height="100"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STI-vD-iWl">
@@ -67,7 +67,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="bendingView" destination="rl2-17-HkY" id="LsO-fv-FhA"/>
+                        <outlet property="BendableView" destination="rl2-17-HkY" id="LsO-fv-FhA"/>
                         <outlet property="heightConstraint" destination="M0S-h7-JZd" id="GLT-lc-kLw"/>
                         <outlet property="leadingConstraint" destination="y8N-kY-ARU" id="dQ1-af-MHb"/>
                         <outlet property="topConstraint" destination="iwV-VE-Zh4" id="lYD-Ph-fw6"/>

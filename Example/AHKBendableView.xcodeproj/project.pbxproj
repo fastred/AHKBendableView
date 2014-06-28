@@ -11,8 +11,8 @@
 		A63AB7AF195F246E00546B00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB7AE195F246E00546B00 /* ViewController.swift */; };
 		A63AB7B2195F246E00546B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B0195F246E00546B00 /* Main.storyboard */; };
 		A63AB7B4195F246E00546B00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B3195F246E00546B00 /* Images.xcassets */; };
-		A63AB7C0195F246E00546B00 /* AHKBendingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB7BF195F246E00546B00 /* AHKBendingViewTests.swift */; };
-		A65BE262195F24AB00B92356 /* BendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65BE261195F24AB00B92356 /* BendingView.swift */; };
+		A63AB7C0195F246E00546B00 /* AHKBendableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB7BF195F246E00546B00 /* AHKBendableViewTests.swift */; };
+		A6F61CC3195F47C500AF4664 /* BendableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F61CC2195F47C500AF4664 /* BendableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,21 +21,21 @@
 			containerPortal = A63AB79F195F246E00546B00 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A63AB7A6195F246E00546B00;
-			remoteInfo = AHKBendingView;
+			remoteInfo = AHKBendableView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A63AB7A7195F246E00546B00 /* AHKBendingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHKBendingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A63AB7A7195F246E00546B00 /* AHKBendableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHKBendableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63AB7AB195F246E00546B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A63AB7AC195F246E00546B00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A63AB7AE195F246E00546B00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A63AB7B1195F246E00546B00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A63AB7B3195F246E00546B00 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A63AB7B9195F246E00546B00 /* AHKBendingViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHKBendingViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A63AB7B9195F246E00546B00 /* AHKBendableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHKBendableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63AB7BE195F246E00546B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A63AB7BF195F246E00546B00 /* AHKBendingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHKBendingViewTests.swift; sourceTree = "<group>"; };
-		A65BE261195F24AB00B92356 /* BendingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BendingView.swift; sourceTree = "<group>"; };
+		A63AB7BF195F246E00546B00 /* AHKBendableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHKBendableViewTests.swift; sourceTree = "<group>"; };
+		A6F61CC2195F47C500AF4664 /* BendableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BendableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				A65BE260195F248F00B92356 /* Pod */,
-				A63AB7A9195F246E00546B00 /* AHKBendingView */,
-				A63AB7BC195F246E00546B00 /* AHKBendingViewTests */,
+				A63AB7A9195F246E00546B00 /* AHKBendableView */,
+				A63AB7BC195F246E00546B00 /* AHKBendableViewTests */,
 				A63AB7A8195F246E00546B00 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,13 +69,13 @@
 		A63AB7A8195F246E00546B00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A63AB7A7195F246E00546B00 /* AHKBendingView.app */,
-				A63AB7B9195F246E00546B00 /* AHKBendingViewTests.xctest */,
+				A63AB7A7195F246E00546B00 /* AHKBendableView.app */,
+				A63AB7B9195F246E00546B00 /* AHKBendableViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A63AB7A9195F246E00546B00 /* AHKBendingView */ = {
+		A63AB7A9195F246E00546B00 /* AHKBendableView */ = {
 			isa = PBXGroup;
 			children = (
 				A63AB7AC195F246E00546B00 /* AppDelegate.swift */,
@@ -84,7 +84,7 @@
 				A63AB7B3195F246E00546B00 /* Images.xcassets */,
 				A63AB7AA195F246E00546B00 /* Supporting Files */,
 			);
-			path = AHKBendingView;
+			path = AHKBendableView;
 			sourceTree = "<group>";
 		};
 		A63AB7AA195F246E00546B00 /* Supporting Files */ = {
@@ -95,13 +95,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A63AB7BC195F246E00546B00 /* AHKBendingViewTests */ = {
+		A63AB7BC195F246E00546B00 /* AHKBendableViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				A63AB7BF195F246E00546B00 /* AHKBendingViewTests.swift */,
+				A63AB7BF195F246E00546B00 /* AHKBendableViewTests.swift */,
 				A63AB7BD195F246E00546B00 /* Supporting Files */,
 			);
-			path = AHKBendingViewTests;
+			path = AHKBendableViewTests;
 			sourceTree = "<group>";
 		};
 		A63AB7BD195F246E00546B00 /* Supporting Files */ = {
@@ -115,7 +115,7 @@
 		A65BE260195F248F00B92356 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A65BE261195F24AB00B92356 /* BendingView.swift */,
+				A6F61CC2195F47C500AF4664 /* BendableView.swift */,
 			);
 			name = Pod;
 			path = ../Classes;
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A63AB7A6195F246E00546B00 /* AHKBendingView */ = {
+		A63AB7A6195F246E00546B00 /* AHKBendableView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A63AB7C3195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendingView" */;
+			buildConfigurationList = A63AB7C3195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendableView" */;
 			buildPhases = (
 				A63AB7A3195F246E00546B00 /* Sources */,
 				A63AB7A4195F246E00546B00 /* Frameworks */,
@@ -136,14 +136,14 @@
 			);
 			dependencies = (
 			);
-			name = AHKBendingView;
-			productName = AHKBendingView;
-			productReference = A63AB7A7195F246E00546B00 /* AHKBendingView.app */;
+			name = AHKBendableView;
+			productName = AHKBendableView;
+			productReference = A63AB7A7195F246E00546B00 /* AHKBendableView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A63AB7B8195F246E00546B00 /* AHKBendingViewTests */ = {
+		A63AB7B8195F246E00546B00 /* AHKBendableViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A63AB7C6195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendingViewTests" */;
+			buildConfigurationList = A63AB7C6195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendableViewTests" */;
 			buildPhases = (
 				A63AB7B5195F246E00546B00 /* Sources */,
 				A63AB7B6195F246E00546B00 /* Frameworks */,
@@ -154,9 +154,9 @@
 			dependencies = (
 				A63AB7BB195F246E00546B00 /* PBXTargetDependency */,
 			);
-			name = AHKBendingViewTests;
-			productName = AHKBendingViewTests;
-			productReference = A63AB7B9195F246E00546B00 /* AHKBendingViewTests.xctest */;
+			name = AHKBendableViewTests;
+			productName = AHKBendableViewTests;
+			productReference = A63AB7B9195F246E00546B00 /* AHKBendableViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A63AB7A2195F246E00546B00 /* Build configuration list for PBXProject "AHKBendingView" */;
+			buildConfigurationList = A63AB7A2195F246E00546B00 /* Build configuration list for PBXProject "AHKBendableView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,8 +190,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A63AB7A6195F246E00546B00 /* AHKBendingView */,
-				A63AB7B8195F246E00546B00 /* AHKBendingViewTests */,
+				A63AB7A6195F246E00546B00 /* AHKBendableView */,
+				A63AB7B8195F246E00546B00 /* AHKBendableViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -220,8 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A65BE262195F24AB00B92356 /* BendingView.swift in Sources */,
 				A63AB7AF195F246E00546B00 /* ViewController.swift in Sources */,
+				A6F61CC3195F47C500AF4664 /* BendableView.swift in Sources */,
 				A63AB7AD195F246E00546B00 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A63AB7C0195F246E00546B00 /* AHKBendingViewTests.swift in Sources */,
+				A63AB7C0195F246E00546B00 /* AHKBendableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +239,7 @@
 /* Begin PBXTargetDependency section */
 		A63AB7BB195F246E00546B00 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A63AB7A6195F246E00546B00 /* AHKBendingView */;
+			target = A63AB7A6195F246E00546B00 /* AHKBendableView */;
 			targetProxy = A63AB7BA195F246E00546B00 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -338,7 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = AHKBendingView/Info.plist;
+				INFOPLIST_FILE = AHKBendableView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,7 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = AHKBendingView/Info.plist;
+				INFOPLIST_FILE = AHKBendableView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,7 +360,7 @@
 		A63AB7C7195F246E00546B00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AHKBendingView.app/AHKBendingView";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AHKBendableView.app/AHKBendableView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -369,7 +369,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AHKBendingViewTests/Info.plist;
+				INFOPLIST_FILE = AHKBendableViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -380,12 +380,12 @@
 		A63AB7C8195F246E00546B00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AHKBendingView.app/AHKBendingView";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AHKBendableView.app/AHKBendableView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AHKBendingViewTests/Info.plist;
+				INFOPLIST_FILE = AHKBendableViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -396,7 +396,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A63AB7A2195F246E00546B00 /* Build configuration list for PBXProject "AHKBendingView" */ = {
+		A63AB7A2195F246E00546B00 /* Build configuration list for PBXProject "AHKBendableView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A63AB7C1195F246E00546B00 /* Debug */,
@@ -405,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A63AB7C3195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendingView" */ = {
+		A63AB7C3195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendableView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A63AB7C4195F246E00546B00 /* Debug */,
@@ -414,7 +414,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A63AB7C6195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendingViewTests" */ = {
+		A63AB7C6195F246E00546B00 /* Build configuration list for PBXNativeTarget "AHKBendableViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A63AB7C7195F246E00546B00 /* Debug */,

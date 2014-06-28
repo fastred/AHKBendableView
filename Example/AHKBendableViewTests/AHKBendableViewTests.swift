@@ -1,6 +1,6 @@
 //
-//  AHKBendingViewTests.swift
-//  AHKBendingViewTests
+//  AHKBendableViewTests.swift
+//  AHKBendableViewTests
 //
 //  Created by Arkadiusz on 28-06-14.
 //  Copyright (c) 2014 Arkadiusz Holko. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class AHKBendingViewTests: XCTestCase {
+class AHKBendableViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

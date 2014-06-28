@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AHKBendingView.xcodeproj">
+      location = "self:AHKBendableView.xcodeproj">
    </FileRef>
 </Workspace>
