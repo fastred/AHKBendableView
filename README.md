@@ -2,13 +2,14 @@
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/BendableView.svg?style=flat)](https://github.com/fastred/BendableView)
 
-`AHKBendableView` is a `UIView` subclass that bends its edges when its position is animated.
+`AHKBendableView` is a `UIView` subclass that bends its edges when its position change is animated. If you're interested to know how it works, you should read: [Recreating Skype's Action Sheet Animation](http://holko.pl/2014/06/26/recreating-skypes-action-sheet-animation/) and a [follow-up post](http://holko.pl/2014/06/28/action-sheet-follow-up/).
 
 ![Demo GIF](https://raw.githubusercontent.com/fastred/AHKBendableView/master/demo.gif)
 
 ## Usage
 
-Use a `BendableView` directly or subclass it. Don't forget to set its internal spring parameters. I propose to use slightly lower values for these properties than the values used in `+animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:`, just like in this example:
+Use a `BendableView` directly or subclass it. Don't forget to set its internal spring parameters. I propose to use slightly lower values for these properties than the values used in `+animateWithDuration:delay:usingSpringWithDamping:
+initialSpringVelocity:options:animations:completion:`, just like in this example:
 
     let bv = BendableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     view.addSubview(bv)
