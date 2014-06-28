@@ -1,6 +1,6 @@
 //
-//  BouncyView.swift
-//  BouncyView
+//  BendingView.swift
+//  AHKBendingView
 //
 //  Created by Arkadiusz on 26-06-14.
 //  Copyright (c) 2014 Arkadiusz Holko. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 import QuartzCore
 
-class BouncyLayer: CALayer {
+class BendingLayer: CALayer {
 
     override func addAnimation(anim: CAAnimation!, forKey key: String!) {
         super.addAnimation(anim, forKey: key)
@@ -23,11 +23,11 @@ class BouncyLayer: CALayer {
     }
 }
 
-protocol BouncyLayerDelegate {
+protocol BendingLayerDelegate {
     func positionAnimationWillStart(anim: CABasicAnimation)
 }
 
-class BouncyView: UIView, BouncyLayerDelegate {
+class BendingView: UIView, BendingLayerDelegate {
 
     // MARK: Public properties
 
@@ -100,7 +100,7 @@ class BouncyView: UIView, BouncyLayerDelegate {
     // MARK: UIView
 
     override class func layerClass() -> AnyClass {
-        return BouncyLayer.self
+        return BendingLayer.self
     }
 
     override func layoutSubviews() {
@@ -111,7 +111,7 @@ class BouncyView: UIView, BouncyLayerDelegate {
         dummyView.frame.origin = frame.origin
     }
 
-    // MARK: BouncyLayerDelegate
+    // MARK: BendingLayerDelegate
 
     func positionAnimationWillStart(anim: CABasicAnimation) {
         if !displayLink {

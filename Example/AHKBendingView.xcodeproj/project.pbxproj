@@ -12,7 +12,7 @@
 		A63AB7B2195F246E00546B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B0195F246E00546B00 /* Main.storyboard */; };
 		A63AB7B4195F246E00546B00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B3195F246E00546B00 /* Images.xcassets */; };
 		A63AB7C0195F246E00546B00 /* AHKBendingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB7BF195F246E00546B00 /* AHKBendingViewTests.swift */; };
-		A65BE262195F24AB00B92356 /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65BE261195F24AB00B92356 /* BouncyView.swift */; };
+		A65BE262195F24AB00B92356 /* BendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65BE261195F24AB00B92356 /* BendingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,7 @@
 		A63AB7B9195F246E00546B00 /* AHKBendingViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHKBendingViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63AB7BE195F246E00546B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A63AB7BF195F246E00546B00 /* AHKBendingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHKBendingViewTests.swift; sourceTree = "<group>"; };
-		A65BE261195F24AB00B92356 /* BouncyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
+		A65BE261195F24AB00B92356 /* BendingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BendingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 		A65BE260195F248F00B92356 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A65BE261195F24AB00B92356 /* BouncyView.swift */,
+				A65BE261195F24AB00B92356 /* BendingView.swift */,
 			);
 			name = Pod;
 			path = ../Classes;
@@ -220,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A65BE262195F24AB00B92356 /* BouncyView.swift in Sources */,
+				A65BE262195F24AB00B92356 /* BendingView.swift in Sources */,
 				A63AB7AF195F246E00546B00 /* ViewController.swift in Sources */,
 				A63AB7AD195F246E00546B00 /* AppDelegate.swift in Sources */,
 			);

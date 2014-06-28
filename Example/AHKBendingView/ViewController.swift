@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  BouncyView
+//  AHKBendingView
 //
 //  Created by Arkadiusz on 26-06-14.
 //  Copyright (c) 2014 Arkadiusz Holko. All rights reserved.
@@ -11,7 +11,7 @@ import QuartzCore
 
 class ViewController: UIViewController {
 
-    @IBOutlet var bouncyView: BouncyView
+    @IBOutlet var bendingView: BendingView
     @IBOutlet var topConstraint: NSLayoutConstraint
     @IBOutlet var leadingConstraint: NSLayoutConstraint
     @IBOutlet var widthConstraint: NSLayoutConstraint
@@ -27,8 +27,8 @@ class ViewController: UIViewController {
 
     func randomizePosition(position: Bool, randomizeSize: Bool) {
 
-        bouncyView.damping = 0.7
-        bouncyView.initialSpringVelocity = 0.8
+        bendingView.damping = 0.7
+        bendingView.initialSpringVelocity = 0.8
 
         if (randomizeSize) {
             widthConstraint.constant = CGFloat(arc4random() % 50) + 150
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             initialSpringVelocity: 0.9,
             options: .BeginFromCurrentState | .AllowUserInteraction,
             animations: {
-                self.bouncyView.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             }, completion: nil
         )
 
