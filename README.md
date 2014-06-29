@@ -43,5 +43,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Arkadiusz Holko, [See my blog](http://holko.pl/) and feel free to [follow me on Twitter](https://twitter.com/arekholko).
+Arkadiusz Holko:
 
+* [Blog](http://holko.pl/)
+* [@arekholko on Twitter](https://twitter.com/arekholko)
