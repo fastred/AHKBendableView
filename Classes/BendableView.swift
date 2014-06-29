@@ -31,7 +31,7 @@ protocol BendableLayerDelegate {
 // UIView subclass that bends its edges (internally, a CAShapeLayer filled with `fillColor`) when its position changes.
 // You'll receive the best effect when you use `+animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:`
 // to animate the change of the position and set `damping` and `initialSpringVelocity` to different values
-// than in that animation block. I propose to use slightly lower values for these properties.
+// than in that animation call. I propose to use slightly lower values for these properties.
 // These properties can't be set automatically, because `CASpringAnimation` is private.
 class BendableView: UIView, BendableLayerDelegate {
 
@@ -52,7 +52,7 @@ class BendableView: UIView, BendableLayerDelegate {
     // A hidden view that is used only for spring animation's simulation.
     // Its frame's origin matches the view's frame origin (except during animation). Of course it is in a different coordinate system,
     // but it doesn't matter to us. What we're interested in, is a position's difference between this subview's frame and the view's frame.
-    // This difference (`bendableOffset`) is used for bending the edges of the view.
+    // This difference (`bendableOffset`) is used for "bending" the edges of the view.
     let dummyView = UIView()
     let shapeLayer = CAShapeLayer()
     var bendableOffset: UIOffset = UIOffsetZero {
