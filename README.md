@@ -45,7 +45,3 @@ it, simply add the following line to your Podfile:
 
 Arkadiusz Holko, [See my blog](http://holko.pl/) and feel free to [follow me on Twitter](https://twitter.com/arekholko).
 
-## License
-
-AHKBendableView is available under the MIT license. See the LICENSE file for more info.
-
