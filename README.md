@@ -2,7 +2,7 @@
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/AHKBendableView.svg?style=flat)](https://github.com/fastred/AHKBendableView)
 
-`AHKBendableView` is a `UIView` subclass that bends its edges when its position change is animated. If you're interested to know how it works, you should read: [Recreating Skype's Action Sheet Animation](http://holko.pl/2014/06/26/recreating-skypes-action-sheet-animation/) and a [follow-up post](http://holko.pl/2014/06/28/action-sheet-follow-up/).
+`AHKBendableView` is a `UIView` subclass that bends its edges when its position change is animated. Internally, `AHKBendableView` contains `CAShapeLayer`, which acts as its background. The layer's `path` changes during animations, creating an effect of bending. Subviews stay intact. You can find a more extensive description on my blog: [Recreating Skype's Action Sheet Animation](http://holko.pl/2014/06/26/recreating-skypes-action-sheet-animation/) and [Follow-Up Post](http://holko.pl/2014/06/28/action-sheet-follow-up/). 
 
 ![Demo GIF](https://raw.githubusercontent.com/fastred/AHKBendableView/master/demo.gif)
 
