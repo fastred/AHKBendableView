@@ -2,11 +2,13 @@
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/AHKBendableView.svg?style=flat)](https://github.com/fastred/AHKBendableView)
 
-`AHKBendableView` is a `UIView` subclass that bends its edges when its position change is animated. Internally, `AHKBendableView` contains `CAShapeLayer`, which acts as its background. The layer's `path` changes during animations, creating an effect of bending. Subviews stay intact. You can find a more extensive description on my blog: [Recreating Skype's Action Sheet Animation](http://holko.pl/2014/06/26/recreating-skypes-action-sheet-animation/) and [Follow-Up Post](http://holko.pl/2014/06/28/action-sheet-follow-up/). 
+`BendableView` is a `UIView` subclass that bends its edges when its position change is animated. Internally, `BendableView` contains `CAShapeLayer`, which acts as its background. The layer's `path` changes during animations, creating an effect of bending. Subviews stay intact. You can find a more extensive description on my blog: [Recreating Skype's Action Sheet Animation](http://holko.pl/2014/06/26/recreating-skypes-action-sheet-animation/) and [Follow-Up Post](http://holko.pl/2014/06/28/action-sheet-follow-up/). 
 
 ![Demo GIF](https://raw.githubusercontent.com/fastred/AHKBendableView/master/demo.gif)
 
 ## Usage
+
+
 
 Use a `BendableView` directly or subclass it. Don't forget to set its internal spring parameters. I propose to use slightly lower values for these properties than the values used in `+animateWithDuration:delay:usingSpringWithDamping:
 initialSpringVelocity:options:animations:completion:`, just like in this example:
