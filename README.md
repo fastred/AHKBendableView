@@ -8,24 +8,33 @@
 
 ## Usage
 
+`BendableView` contains three public properties:
 
+```swift
+var damping: CGFloat // set to animate the view's edges differently than the whole view (used in an internal spring animation)
+var initialSpringVelocity: CGFloat // same as above
+var fillColor: UIColor // "background" color of the bendable layer
+```
 
-Use a `BendableView` directly or subclass it. Don't forget to set its internal spring parameters. I propose to use slightly lower values for these properties than the values used in `+animateWithDuration:delay:usingSpringWithDamping:
+You should set them before animating the position change of the view. I propose to use slightly lower values for `damping` and `initialSpringVelocity` than the values used when calling `+animateWithDuration:delay:usingSpringWithDamping:
 initialSpringVelocity:options:animations:completion:`, just like in this example:
 
-    let bv = BendableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-    view.addSubview(bv)
+```swift
+let bv = BendableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+view.addSubview(bv)
 
-    // bending setup
-    bv.fillColor = UIColor.redColor()
-    bv.damping = 0.7 // used to animate the view's edges
-    bv.initialSpringVelocity = 0.8 // used to animate the view's edges
+// bending setup
+bv.fillColor = UIColor.redColor()
+bv.damping = 0.7
+bv.initialSpringVelocity = 0.8
 
-    UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: .BeginFromCurrentState | .AllowUserInteraction, animations: {
-            bv.frame.origin = CGPoint(x: 200, y: 300)
-            bv.frame.size = CGSize(width: 150, height: 150)
-        }, completion: nil)
+UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: .BeginFromCurrentState | .AllowUserInteraction, animations: {
+        bv.frame.origin = CGPoint(x: 200, y: 300)
+        bv.frame.size = CGSize(width: 150, height: 150)
+    }, completion: nil)
+```
 
+Have fun!
 
 ## Example project
 
