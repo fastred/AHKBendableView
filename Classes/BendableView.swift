@@ -28,11 +28,12 @@ protocol BendableLayerDelegate {
 }
 
 
-// UIView subclass that bends its edges (internally, a CAShapeLayer filled with `fillColor`) when its position changes.
-// You'll receive the best effect when you use `+animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:`
-// to animate the change of the position and set `damping` and `initialSpringVelocity` to different values
-// than in that animation call. I propose to use slightly lower values for these properties.
-// These properties can't be set automatically, because `CASpringAnimation` is private.
+/// UIView subclass that bends its edges (internally, a CAShapeLayer filled with `fillColor`) when its position changes.
+///
+/// You'll receive the best effect when you use `+animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:`
+/// to animate the change of the position and set `damping` and `initialSpringVelocity` to different values
+/// than in that animation call. I propose to use slightly lower values for these properties.
+/// These properties can't be set automatically, because `CASpringAnimation` is private.
 class BendableView: UIView, BendableLayerDelegate {
 
     // MARK: Public properties
