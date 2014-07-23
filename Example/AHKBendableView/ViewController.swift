@@ -30,13 +30,18 @@ class ViewController: UIViewController {
         bendableView.initialSpringVelocity = 0.8
 
         if (randomizeSize) {
-            widthConstraint.constant = CGFloat(arc4random() % 50) + 150
-            heightConstraint.constant = CGFloat(arc4random() % 50) + 150
+            widthConstraint.constant = CGFloat(UInt(arc4random_uniform(50)) + 150)
+            heightConstraint.constant = CGFloat(UInt(arc4random_uniform(50)) + 150)
         }
 
         if (position) {
-            topConstraint.constant = CGFloat(arc4random() % UInt32(CGRectGetHeight(view.frame) - heightConstraint.constant))
-            leadingConstraint.constant = CGFloat(arc4random() % UInt32(CGRectGetWidth(view.frame) - widthConstraint.constant))
+            // So many casts to satisfy the compiler...
+
+            let maxTopMargin = UInt32(UInt(CGRectGetHeight(view.frame) - heightConstraint.constant))
+            topConstraint.constant = CGFloat(UInt(arc4random_uniform(maxTopMargin)))
+
+            let maxLeadingMargin = UInt32(UInt(CGRectGetWidth(view.frame) - widthConstraint.constant))
+            leadingConstraint.constant = CGFloat(UInt(arc4random_uniform(maxLeadingMargin)))
         }
 
         UIView.animateWithDuration(0.5,
