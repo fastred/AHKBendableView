@@ -68,7 +68,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
-                        <outlet property="BendableView" destination="rl2-17-HkY" id="LsO-fv-FhA"/>
+                        <outlet property="bendableView" destination="rl2-17-HkY" id="3vx-gJ-2RW"/>
                         <outlet property="heightConstraint" destination="M0S-h7-JZd" id="GLT-lc-kLw"/>
                         <outlet property="leadingConstraint" destination="y8N-kY-ARU" id="dQ1-af-MHb"/>
                         <outlet property="topConstraint" destination="iwV-VE-Zh4" id="lYD-Ph-fw6"/>
