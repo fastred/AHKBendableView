@@ -9,7 +9,7 @@ import UIKit
 import CoreGraphics
 import QuartzCore
 
-class BendableLayer: CALayer {
+private class BendableLayer: CALayer {
 
     override func addAnimation(anim: CAAnimation!, forKey key: String!) {
         super.addAnimation(anim, forKey: key)
@@ -23,7 +23,7 @@ class BendableLayer: CALayer {
     }
 }
 
-protocol BendableLayerDelegate {
+private protocol BendableLayerDelegate {
     func positionAnimationWillStart(anim: CABasicAnimation)
 }
 
@@ -34,29 +34,25 @@ protocol BendableLayerDelegate {
 /// to animate the change of the position and set `damping` and `initialSpringVelocity` to different values
 /// than in that animation call. I propose to use slightly lower values for these properties.
 /// These properties can't be set automatically, because `CASpringAnimation` is private.
-class BendableView: UIView, BendableLayerDelegate {
+public class BendableView: UIView, BendableLayerDelegate {
 
-    // MARK: Public properties
-
-    var damping: CGFloat = 0.7
-    var initialSpringVelocity: CGFloat = 0.8
-    var fillColor: UIColor = UIColor(red: 0, green: 0.722, blue: 1, alpha: 1) {
+    public var damping: CGFloat = 0.7
+    public var initialSpringVelocity: CGFloat = 0.8
+    public var fillColor: UIColor = UIColor(red: 0, green: 0.722, blue: 1, alpha: 1) {
     didSet {
         updateColor()
     }
     }
 
-    // MARK: Private properties
-
-    var displayLink: CADisplayLink?
-    var animationCount = 0
+    private var displayLink: CADisplayLink?
+    private var animationCount = 0
     // A hidden view that is used only for spring animation's simulation.
     // Its frame's origin matches the view's frame origin (except during animation). Of course it is in a different coordinate system,
     // but it doesn't matter to us. What we're interested in, is a position's difference between this subview's frame and the view's frame.
     // This difference (`bendableOffset`) is used for "bending" the edges of the view.
-    let dummyView = UIView()
-    let shapeLayer = CAShapeLayer()
-    var bendableOffset: UIOffset = UIOffsetZero {
+    private let dummyView = UIView()
+    private let shapeLayer = CAShapeLayer()
+    private var bendableOffset: UIOffset = UIOffsetZero {
     didSet {
         updatePath()
     }
@@ -76,7 +72,7 @@ class BendableView: UIView, BendableLayerDelegate {
         commonInit()
     }
 
-    func commonInit() {
+    private func commonInit() {
         self.layer.insertSublayer(shapeLayer, atIndex: 0)
         updatePath()
         updateColor()
@@ -86,11 +82,11 @@ class BendableView: UIView, BendableLayerDelegate {
 
     // MARK: UIView
 
-    override class func layerClass() -> AnyClass {
+    override public class func layerClass() -> AnyClass {
         return BendableLayer.self
     }
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
 
         updatePath()
@@ -127,7 +123,7 @@ class BendableView: UIView, BendableLayerDelegate {
         )
     }
 
-    // MARK: Private
+    // MARK: Internal
 
     func updatePath() {
         var bounds: CGRect
