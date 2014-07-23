@@ -10,11 +10,11 @@ import QuartzCore
 
 class ViewController: UIViewController {
 
-    @IBOutlet var bendableView: BendableView
-    @IBOutlet var topConstraint: NSLayoutConstraint
-    @IBOutlet var leadingConstraint: NSLayoutConstraint
-    @IBOutlet var widthConstraint: NSLayoutConstraint
-    @IBOutlet var heightConstraint: NSLayoutConstraint
+    @IBOutlet var bendableView: BendableView!
+    @IBOutlet var topConstraint: NSLayoutConstraint!
+    @IBOutlet var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet var widthConstraint: NSLayoutConstraint!
+    @IBOutlet var heightConstraint: NSLayoutConstraint!
 
     @IBAction func randomizePositionTapped(sender: UIButton) {
         randomizePosition(true, randomizeSize: false)
