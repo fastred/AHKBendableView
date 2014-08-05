@@ -60,13 +60,13 @@ public class BendableView: UIView, BendableLayerDelegate {
 
     // MARK: Init
 
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
 
         commonInit()
     }
 
-    init(coder aDecoder: NSCoder!) {
+    required public init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
 
         commonInit()
@@ -96,7 +96,7 @@ public class BendableView: UIView, BendableLayerDelegate {
     // MARK: BendableLayerDelegate
 
     func positionAnimationWillStart(anim: CABasicAnimation) {
-        if !displayLink {
+        if displayLink == nil {
             displayLink = CADisplayLink(target: self, selector: "tick:")
             displayLink!.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
         }
