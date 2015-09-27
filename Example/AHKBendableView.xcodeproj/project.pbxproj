@@ -12,6 +12,7 @@
 		A63AB7B2195F246E00546B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B0195F246E00546B00 /* Main.storyboard */; };
 		A63AB7B4195F246E00546B00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B3195F246E00546B00 /* Images.xcassets */; };
 		A63AB7C0195F246E00546B00 /* AHKBendableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB7BF195F246E00546B00 /* AHKBendableViewTests.swift */; };
+		A65426F41BB8462C00BE4618 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65426F31BB8462C00BE4618 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		A6F61CC3195F47C500AF4664 /* BendableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F61CC2195F47C500AF4664 /* BendableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		A63AB7B9195F246E00546B00 /* AHKBendableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHKBendableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63AB7BE195F246E00546B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A63AB7BF195F246E00546B00 /* AHKBendableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHKBendableViewTests.swift; sourceTree = "<group>"; };
+		A65426F31BB8462C00BE4618 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A6F61CC2195F47C500AF4664 /* BendableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BendableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 				A63AB7B0195F246E00546B00 /* Main.storyboard */,
 				A63AB7B3195F246E00546B00 /* Images.xcassets */,
 				A63AB7AA195F246E00546B00 /* Supporting Files */,
+				A65426F31BB8462C00BE4618 /* Launch Screen.storyboard */,
 			);
 			path = AHKBendableView;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65426F41BB8462C00BE4618 /* Launch Screen.storyboard in Resources */,
 				A63AB7B2195F246E00546B00 /* Main.storyboard in Resources */,
 				A63AB7B4195F246E00546B00 /* Images.xcassets in Resources */,
 			);
