@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             delay: 0,
             usingSpringWithDamping: 0.9,
             initialSpringVelocity: 0.9,
-            options: .BeginFromCurrentState | .AllowUserInteraction,
+            options: [.BeginFromCurrentState, .AllowUserInteraction],
             animations: {
                 self.view.layoutIfNeeded()
             }, completion: nil

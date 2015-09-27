@@ -11,7 +11,7 @@ import QuartzCore
 
 private class BendableLayer: CALayer {
 
-    override func addAnimation(anim: CAAnimation!, forKey key: String!) {
+    override func addAnimation(anim: CAAnimation, forKey key: String?) {
         super.addAnimation(anim, forKey: key)
 
         // Checks if the animation changes the position and lets the view know about that.
@@ -66,7 +66,7 @@ public class BendableView: UIView, BendableLayerDelegate {
         commonInit()
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         commonInit()
@@ -110,7 +110,7 @@ public class BendableView: UIView, BendableLayerDelegate {
             delay: anim.beginTime,
             usingSpringWithDamping: damping,
             initialSpringVelocity: initialSpringVelocity,
-            options: .BeginFromCurrentState | .AllowUserInteraction | .OverrideInheritedOptions,
+            options: [.BeginFromCurrentState, .AllowUserInteraction, .OverrideInheritedOptions],
             animations: {
                 self.dummyView.frame.origin = newPosition
             }, completion: { _ in
