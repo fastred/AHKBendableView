@@ -16,7 +16,7 @@ private class BendableLayer: CALayer {
 
         // Checks if the animation changes the position and lets the view know about that.
         if let basicAnimation = anim as? CABasicAnimation {
-            if basicAnimation.keyPath == NSStringFromSelector("position") {
+            if basicAnimation.keyPath == NSStringFromSelector(Selector("position")) {
                 self.delegate?.positionAnimationWillStart?(basicAnimation)
             }
         }
@@ -97,10 +97,10 @@ public class BendableView: UIView, BendableLayerDelegate {
 
     func positionAnimationWillStart(anim: CABasicAnimation) {
         if displayLink == nil {
-            displayLink = CADisplayLink(target: self, selector: "tick:")
+            displayLink = CADisplayLink(target: self, selector: #selector(self.tick(_:)))
             displayLink!.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
         }
-        animationCount++
+        animationCount += 1
 
         let newPosition = layer.frame.origin
 
@@ -114,7 +114,7 @@ public class BendableView: UIView, BendableLayerDelegate {
             animations: {
                 self.dummyView.frame.origin = newPosition
             }, completion: { _ in
-                self.animationCount--
+                self.animationCount -= 1
                 if self.animationCount == 0 {
                     self.displayLink!.invalidate()
                     self.displayLink = nil
