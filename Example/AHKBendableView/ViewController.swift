@@ -16,39 +16,37 @@ class ViewController: UIViewController {
     @IBOutlet var widthConstraint: NSLayoutConstraint!
     @IBOutlet var heightConstraint: NSLayoutConstraint!
 
-    @IBAction func randomizePositionTapped(sender: UIButton) {
+    @IBAction func randomizePositionTapped(_ sender: UIButton) {
         randomizePosition(true, randomizeSize: false)
     }
 
-    @IBAction func randomizePositionAndSizeTapped(sender: UIButton) {
+    @IBAction func randomizePositionAndSizeTapped(_ sender: UIButton) {
         randomizePosition(true, randomizeSize: true)
     }
 
-    func randomizePosition(position: Bool, randomizeSize: Bool) {
+    func randomizePosition(_ position: Bool, randomizeSize: Bool) {
 
         bendableView.damping = 0.7
         bendableView.initialSpringVelocity = 0.8
 
         if (randomizeSize) {
-            widthConstraint.constant = CGFloat(UInt(arc4random_uniform(50)) + 150)
-            heightConstraint.constant = CGFloat(UInt(arc4random_uniform(50)) + 150)
+            widthConstraint.constant = CGFloat(arc4random_uniform(50)) + 150
+            heightConstraint.constant = CGFloat(arc4random_uniform(50)) + 150
         }
 
         if (position) {
-            // So many casts to satisfy the compiler...
+            let maxTopMargin = view.frame.height - heightConstraint.constant
+            topConstraint.constant = CGFloat(arc4random_uniform(UInt32(maxTopMargin)))
 
-            let maxTopMargin = UInt32(UInt(CGRectGetHeight(view.frame) - heightConstraint.constant))
-            topConstraint.constant = CGFloat(UInt(arc4random_uniform(maxTopMargin)))
-
-            let maxLeadingMargin = UInt32(UInt(CGRectGetWidth(view.frame) - widthConstraint.constant))
-            leadingConstraint.constant = CGFloat(UInt(arc4random_uniform(maxLeadingMargin)))
+            let maxLeadingMargin = view.frame.width - widthConstraint.constant
+            leadingConstraint.constant = CGFloat(arc4random_uniform(UInt32(maxLeadingMargin)))
         }
 
-        UIView.animateWithDuration(0.5,
+        UIView.animate(withDuration: 0.5,
             delay: 0,
             usingSpringWithDamping: 0.9,
             initialSpringVelocity: 0.9,
-            options: [.BeginFromCurrentState, .AllowUserInteraction],
+            options: [.beginFromCurrentState, .allowUserInteraction],
             animations: {
                 self.view.layoutIfNeeded()
             }, completion: nil
