@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "AHKBendableView"
-  s.version          = "1.0"
+  s.version          = "1.1"
   s.summary          = "UIView subclass that bends its edges when its position changes."
   s.homepage         = "https://github.com/fastred/AHKBendableView"
   s.license          = 'MIT'
