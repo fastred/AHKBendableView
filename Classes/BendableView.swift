@@ -11,20 +11,22 @@ import QuartzCore
 
 private class BendableLayer: CALayer {
 
-    override func addAnimation(anim: CAAnimation, forKey key: String?) {
-        super.addAnimation(anim, forKey: key)
+    override func add(_ anim: CAAnimation, forKey key: String?) {
+        super.add(anim, forKey: key)
 
         // Checks if the animation changes the position and lets the view know about that.
         if let basicAnimation = anim as? CABasicAnimation {
-            if basicAnimation.keyPath == NSStringFromSelector(Selector("position")) {
-                self.delegate?.positionAnimationWillStart?(basicAnimation)
+            if basicAnimation.keyPath == NSStringFromSelector(#selector(getter: CALayer.position)) {
+                if let delegate = delegate as? BendableLayerDelegate {
+                    delegate.positionAnimationWillStart(basicAnimation)
+                }
             }
         }
     }
 }
 
 private protocol BendableLayerDelegate {
-    func positionAnimationWillStart(anim: CABasicAnimation)
+    func positionAnimationWillStart(_ anim: CABasicAnimation)
 }
 
 
@@ -34,28 +36,28 @@ private protocol BendableLayerDelegate {
 /// to animate the change of the position and set `damping` and `initialSpringVelocity` to different values
 /// than in that animation call. I propose to use slightly lower values for these properties.
 /// These properties can't be set automatically, because `CASpringAnimation` is private.
-public class BendableView: UIView, BendableLayerDelegate {
+open class BendableView: UIView, BendableLayerDelegate {
 
-    public var damping: CGFloat = 0.7
-    public var initialSpringVelocity: CGFloat = 0.8
-    public var fillColor: UIColor = UIColor(red: 0, green: 0.722, blue: 1, alpha: 1) {
+    open var damping: CGFloat = 0.7
+    open var initialSpringVelocity: CGFloat = 0.8
+    open var fillColor: UIColor = UIColor(red: 0, green: 0.722, blue: 1, alpha: 1) {
     didSet {
         updateColor()
     }
     }
 
-    private var displayLink: CADisplayLink?
-    private var animationCount = 0
+    fileprivate var displayLink: CADisplayLink?
+    fileprivate var animationCount = 0
     // A hidden view that is used only for spring animation's simulation.
     // Its frame's origin matches the view's frame origin (except during animation). Of course it is in a different coordinate system,
     // but it doesn't matter to us. What we're interested in, is a position's difference between this subview's frame and the view's frame.
     // This difference (`bendableOffset`) is used for "bending" the edges of the view.
-    private let dummyView = UIView()
-    private let shapeLayer = CAShapeLayer()
-    private var bendableOffset: UIOffset = UIOffsetZero {
-    didSet {
-        updatePath()
-    }
+    fileprivate let dummyView = UIView()
+    fileprivate let shapeLayer = CAShapeLayer()
+    fileprivate var bendableOffset: UIOffset = UIOffset.zero {
+        didSet {
+            updatePath()
+        }
     }
 
     // MARK: Init
@@ -72,8 +74,8 @@ public class BendableView: UIView, BendableLayerDelegate {
         commonInit()
     }
 
-    private func commonInit() {
-        self.layer.insertSublayer(shapeLayer, atIndex: 0)
+    fileprivate func commonInit() {
+        layer.insertSublayer(shapeLayer, at: 0)
         updatePath()
         updateColor()
 
@@ -82,11 +84,11 @@ public class BendableView: UIView, BendableLayerDelegate {
 
     // MARK: UIView
 
-    override public class func layerClass() -> AnyClass {
+    override open class var layerClass : AnyClass {
         return BendableLayer.self
     }
 
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
 
         updatePath()
@@ -95,10 +97,10 @@ public class BendableView: UIView, BendableLayerDelegate {
 
     // MARK: BendableLayerDelegate
 
-    func positionAnimationWillStart(anim: CABasicAnimation) {
+    func positionAnimationWillStart(_ anim: CABasicAnimation) {
         if displayLink == nil {
-            displayLink = CADisplayLink(target: self, selector: #selector(self.tick(_:)))
-            displayLink!.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+            displayLink = CADisplayLink(target: self, selector: #selector(tick(_:)))
+            displayLink!.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
         }
         animationCount += 1
 
@@ -106,11 +108,11 @@ public class BendableView: UIView, BendableLayerDelegate {
 
         // Effects of this animation are invisible, because dummyView is hidden.
         // dummyView frame's change animation matches the animation of the whole view, though it's in a different coordinate system.
-        UIView.animateWithDuration(anim.duration,
+        UIView.animate(withDuration: anim.duration,
             delay: anim.beginTime,
             usingSpringWithDamping: damping,
             initialSpringVelocity: initialSpringVelocity,
-            options: [.BeginFromCurrentState, .AllowUserInteraction, .OverrideInheritedOptions],
+            options: [.beginFromCurrentState, .allowUserInteraction, .overrideInheritedOptions],
             animations: {
                 self.dummyView.frame.origin = newPosition
             }, completion: { _ in
@@ -127,39 +129,39 @@ public class BendableView: UIView, BendableLayerDelegate {
 
     func updatePath() {
         var bounds: CGRect
-        if let presentationLayer = layer.presentationLayer() as? CALayer {
+        if let presentationLayer = layer.presentation() {
             bounds = presentationLayer.bounds
         } else {
             bounds = self.bounds
         }
 
-        let width = CGRectGetWidth(bounds)
-        let height = CGRectGetHeight(bounds)
+        let width = bounds.width
+        let height = bounds.height
 
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 0, y: 0))
-        path.addQuadCurveToPoint(CGPoint(x: width, y: 0),
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addQuadCurve(to: CGPoint(x: width, y: 0),
             controlPoint:CGPoint(x: width / 2.0, y: 0 + bendableOffset.vertical))
-        path.addQuadCurveToPoint(CGPoint(x: width, y: height),
+        path.addQuadCurve(to: CGPoint(x: width, y: height),
             controlPoint:CGPoint(x: width + bendableOffset.horizontal, y: height / 2.0))
-        path.addQuadCurveToPoint(CGPoint(x: 0, y: height),
+        path.addQuadCurve(to: CGPoint(x: 0, y: height),
             controlPoint: CGPoint(x: width / 2.0, y: height + bendableOffset.vertical))
-        path.addQuadCurveToPoint(CGPoint(x: 0, y: 0),
+        path.addQuadCurve(to: CGPoint(x: 0, y: 0),
             controlPoint: CGPoint(x: bendableOffset.horizontal, y: height / 2.0))
-        path.closePath()
+        path.close()
 
-        shapeLayer.path = path.CGPath
+        shapeLayer.path = path.cgPath
     }
 
     func updateColor() {
-        shapeLayer.fillColor = fillColor.CGColor
+        shapeLayer.fillColor = fillColor.cgColor
     }
 
-    func tick(displayLink: CADisplayLink) {
-        if let dummyViewPresentationLayer = dummyView.layer.presentationLayer() as? CALayer {
-            if let presentationLayer = layer.presentationLayer() as? CALayer {
-                bendableOffset = UIOffset(horizontal: CGRectGetMinX(dummyViewPresentationLayer.frame) - CGRectGetMinX(presentationLayer.frame),
-                    vertical: CGRectGetMinY(dummyViewPresentationLayer.frame) - CGRectGetMinY(presentationLayer.frame))
+    func tick(_ displayLink: CADisplayLink) {
+        if let dummyViewPresentationLayer = dummyView.layer.presentation() {
+            if let presentationLayer = layer.presentation() {
+                bendableOffset = UIOffset(horizontal: (dummyViewPresentationLayer.frame).minX - (presentationLayer.frame).minX,
+                    vertical: (dummyViewPresentationLayer.frame).minY - (presentationLayer.frame).minY)
             }
         }
     }

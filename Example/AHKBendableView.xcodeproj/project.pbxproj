@@ -12,7 +12,7 @@
 		A63AB7B2195F246E00546B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B0195F246E00546B00 /* Main.storyboard */; };
 		A63AB7B4195F246E00546B00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A63AB7B3195F246E00546B00 /* Images.xcassets */; };
 		A63AB7C0195F246E00546B00 /* AHKBendableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB7BF195F246E00546B00 /* AHKBendableViewTests.swift */; };
-		A65426F41BB8462C00BE4618 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65426F31BB8462C00BE4618 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		A65426F41BB8462C00BE4618 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65426F31BB8462C00BE4618 /* Launch Screen.storyboard */; };
 		A6F61CC3195F47C500AF4664 /* BendableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F61CC2195F47C500AF4664 /* BendableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,9 +175,11 @@
 				TargetAttributes = {
 					A63AB7A6195F246E00546B00 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					A63AB7B8195F246E00546B00 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = A63AB7A6195F246E00546B00;
 					};
 				};
@@ -350,6 +352,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.holko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -363,6 +366,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.holko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -383,6 +387,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.holko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -400,6 +405,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.holko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
