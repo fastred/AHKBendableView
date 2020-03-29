@@ -100,7 +100,7 @@ open class BendableView: UIView, BendableLayerDelegate {
     func positionAnimationWillStart(_ anim: CABasicAnimation) {
         if displayLink == nil {
             displayLink = CADisplayLink(target: self, selector: #selector(tick(_:)))
-            displayLink!.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            displayLink!.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
         }
         animationCount += 1
 
@@ -157,7 +157,7 @@ open class BendableView: UIView, BendableLayerDelegate {
         shapeLayer.fillColor = fillColor.cgColor
     }
 
-    func tick(_ displayLink: CADisplayLink) {
+    @objc func tick(_ displayLink: CADisplayLink) {
         if let dummyViewPresentationLayer = dummyView.layer.presentation() {
             if let presentationLayer = layer.presentation() {
                 bendableOffset = UIOffset(horizontal: (dummyViewPresentationLayer.frame).minX - (presentationLayer.frame).minX,
